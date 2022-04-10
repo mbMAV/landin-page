@@ -23,26 +23,26 @@
  * 
 */
 
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
+const sections = document.querySelectorAll("section");
 
 // build the nav
 
+// function makes sections active when in viewport by add/remove 'your-active-class'
+function makeActive() {
+    for (let section of sections) {
+      let box = section.getBoundingClientRect(); // define viewbox
+      if (box.top <= 300 && box.bottom >= 200) {
+        section.classList.add('your-active-class'); // add 'your-active-class' to the current section
+      } else {
+        section.classList.remove('your-active-class'); // remove 'your-active-class' to the current section
+      }
+    }
+  }
 
-// Add class 'active' to section when near top of viewport
-
+// call makeActive on scrolling event
+window.addEventListener("scroll", function() {
+    makeActive();
+  });
 
 // Scroll to anchor ID using scrollTO event
 
@@ -56,7 +56,3 @@
 // Build menu 
 
 // Scroll to section on link click
-
-// Set sections as active
-
-
