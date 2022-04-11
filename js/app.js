@@ -63,10 +63,10 @@ function navBar() {
         let navi_name = section.getAttribute("data-nav"); // get data-nav Attribute from section
         navi_li.innerHTML = `<a href="#${navi_id}" class="menu__link">${navi_name}</a>`; // add innerHTML content (href, class, text content) to li Element
         fragment.appendChild(navi_li); // append li Element to DocumentFragment
+
+        scrollTo(navi_li, section); // call scrollTo function and pass arguments
     }
     naviList.appendChild(fragment); // append fragment to ul navigation list
-
-    scrollTo(navi_li, section); // call scrollTo function and pass arguments
 }
 
 /**
