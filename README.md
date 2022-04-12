@@ -20,14 +20,14 @@ https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page
 
 ## Files
 
-/css
+-/css
   -styles.css
 
-/js
+-/js
   -app.js
 
-+index.html
-+README.md
+-index.html
+-README.md
 
 ## Function
 
