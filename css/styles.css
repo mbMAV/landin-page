@@ -68,15 +68,24 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navbar__menu li {
     display: inline-block;
+    border-style: solid;
+    border-color: black;
+    margin: -1px;
+    text-align: center;
+
 }
 
 .navbar__menu .menu__link {
     display: block;
-    padding: 1em;
+    padding: 2px;
+    padding-bottom: .5em;
+    padding-top: .5em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
