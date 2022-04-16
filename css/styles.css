@@ -78,7 +78,7 @@ section {
     border-color: black;
     margin: -1px;
     text-align: center;
-
+    color: #000;
 }
 
 .navbar__menu .menu__link {
@@ -95,6 +95,11 @@ section {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
+}
+
+.navbar__menu .navbar__active {
+    background: #333;
+    color: #fff;
 }
 
 /* Header Styles */

@@ -21,8 +21,8 @@
 /**
  * Define Global Variables
 */
-const sections = document.querySelectorAll("section");
-const naviList = document.getElementById("navbar__list");
+const sections = document.querySelectorAll('section');
+const naviList = document.getElementById('navbar__list');
 
 /**
  * function makes sections active when in viewport by add/remove 'your-active-class'
@@ -33,11 +33,14 @@ const naviList = document.getElementById("navbar__list");
 */
 function makeActive() {
     for (const section of sections) {
-        let box = section.getBoundingClientRect(); // define viewbox
+        const box = section.getBoundingClientRect(); // define viewbox
+        const item = section.getAttribute('id'); // get id Attribute from section
         if (box.top <= 300 && box.bottom >= 200) {
             section.classList.add('your-active-class'); // add 'your-active-class' to the current viewed section
+            document.querySelector(`a[href= '#${item}']`).classList.add('navbar__active'); // add 'navbar__active' to the current viewed navbar item
         } else {
-            section.classList.remove('your-active-class'); // remove 'your-active-class' to the current not viwed section
+            section.classList.remove('your-active-class'); // remove 'your-active-class' from the current not viwed section
+            document.querySelector(`a[href= '#${item}']`).classList.remove('navbar__active');  // remove 'navbar__active' from the current viewed navbar item
         }
     }
 }
@@ -45,7 +48,7 @@ function makeActive() {
 /**
  * call makeActive function on window scroll event
 */
-window.addEventListener("scroll", function() {
+window.addEventListener('scroll', function() {
     makeActive()
 });
 
@@ -58,10 +61,10 @@ window.addEventListener("scroll", function() {
 function navBar() {
     let fragment = document.createDocumentFragment();
     for (const section of sections) { // loop throug sections
-        let navi_li = document.createElement("li"); // create li Element
-        let navi_id = section.getAttribute("id"); // get id Attribute from section
-        let navi_name = section.getAttribute("data-nav"); // get data-nav Attribute from section
-        navi_li.innerHTML = `<a href="#${navi_id}" class="menu__link">${navi_name}</a>`; // add innerHTML content (href, class, text content) to li Element
+        let navi_li = document.createElement('li'); // create li Element
+        let navi_id = section.getAttribute('id'); // get id Attribute from section
+        let navi_name = section.getAttribute('data-nav'); // get data-nav Attribute from section
+        navi_li.innerHTML = `<a href='#${navi_id}' id='li_${navi_id}' class='menu__link'>${navi_name}</a>`; // add innerHTML content (href, class, text content) to li Element
         fragment.appendChild(navi_li); // append li Element to DocumentFragment
 
         scrollTo(navi_li, section); // call scrollTo function and pass arguments
@@ -82,8 +85,8 @@ navBar()
  * https://knowledge.udacity.com/questions/777807
  */
 function scrollTo(navi_li, section) {
-    navi_li.addEventListener("click", function (event) { // add event listener
+    navi_li.addEventListener('click', function (event) { // add event listener
         event.preventDefault();
-        section.scrollIntoView({behavior: "smooth"}); // scroll section smooth into view
+        section.scrollIntoView({behavior: 'smooth'}); // scroll section smooth into view
     });
 }
